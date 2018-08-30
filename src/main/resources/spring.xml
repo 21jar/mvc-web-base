@@ -2,7 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
 
 <!-- 引入属性文件 -->
     <context:property-placeholder location="classpath:jdbc.properties,classpath:conf.properties"/>
@@ -17,10 +18,10 @@
 
     <!-- 计划任务配置，用 @Service @Lazy(false)标注类，用@Scheduled(cron = "0 0 2 * * ?")标注方法 -->
     <!--配置executor线程池，这里executor的含义和java.util.concurrent.Executor是一样的-->
-    <!--<task:executor id="executor" pool-size="5"/>-->
-    <!--&lt;!&ndash;scheduler的pool-size是ScheduledExecutorService线程池&ndash;&gt;-->
-    <!--<task:scheduler id="scheduler" pool-size="5"/>-->
-    <!--<task:annotation-driven scheduler="scheduler" executor="executor" proxy-target-class="true"/>-->
+    <task:executor id="executor" pool-size="5"/>
+    <!--scheduler的pool-size是ScheduledExecutorService线程池-->
+    <task:scheduler id="scheduler" pool-size="5"/>
+    <task:annotation-driven scheduler="scheduler" executor="executor" proxy-target-class="true"/>
 
     <import resource="classpath:spring-shiro.xml"/>
     <import resource="classpath:spring-mybatis.xml"/>
