@@ -12,8 +12,8 @@
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
-    <!-- 配置 JSR303 Bean Validator 定义 @NotNull, @Max-->
-    <!--<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />-->
+    <!-- 配置 JSR303 Bean Validator 定义 @NotNull 需要hibernate-validator包,springmvc使用hibernate的校验框架validation(和hibernate没有任何关系)-->
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
 
     <!-- 计划任务配置，用 @Service @Lazy(false)标注类，用@Scheduled(cron = "0 0 2 * * ?")标注方法 -->
     <!--配置executor线程池，这里executor的含义和java.util.concurrent.Executor是一样的-->
