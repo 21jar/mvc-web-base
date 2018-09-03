@@ -1,6 +1,5 @@
 package com.ainijar;
 
-import com.ainijar.controller.HelloWorld;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,7 @@ public class BaseTest {
 
     @Test
     public void test1() {
-        helloWorld.all("ad");
+        helloWorld.say("hello world");
     }
 
 }
