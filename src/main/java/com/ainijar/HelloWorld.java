@@ -14,7 +14,7 @@ public class HelloWorld {
         return "say " + a;
     }
 
-    @Scheduled(cron = "0/5 * * * * ?")
+    @Scheduled(cron = "0 0 0/5 * * ?")
     public void hello () {
         System.out.println("say hello world");
     }
