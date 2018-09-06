@@ -17,7 +17,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
-    <spring.version>4.0.8.RELEASE</spring.version>
+    <spring.version>4.3.8.RELEASE</spring.version>
     <druid.version>1.0.18</druid.version>
     <redis.version>2.9.0</redis.version>
     <shiro.version>1.3.2</shiro.version>
@@ -26,7 +26,7 @@
     <mysql.version>5.1.44</mysql.version>
     <servlet.version>3.1.0</servlet.version>
     <shiro.version>1.3.2</shiro.version>
-    <junit.version>4.11</junit.version>
+    <junit.version>4.12</junit.version>
     <fileupload.version>1.3.1</fileupload.version>
     <baomidou.version>2.3.1</baomidou.version>
     <pagehelper.version>4.2.1</pagehelper.version>
@@ -117,6 +117,13 @@
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
       <version>${servlet.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+      <type>jar</type>
     </dependency>
 
     <!-- FileUpload -->

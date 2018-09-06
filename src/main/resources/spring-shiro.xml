@@ -31,7 +31,6 @@
         <property name="filterChainDefinitions">
             <value>
                 /static/** = anon
-                /userfiles/** = anon
                 ${adminPath}/sys/user/resetPassword = anon
                 ${adminPath}/sys/register = anon
                 ${adminPath}/sys/register/registerUser = anon
