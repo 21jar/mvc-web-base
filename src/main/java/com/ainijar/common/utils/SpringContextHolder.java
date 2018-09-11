@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2015-2020 <a href="http://www.jeeplus.org/">JeePlus</a> All rights reserved.
- */
 package com.ainijar.common.utils;
 
 import org.apache.commons.lang3.Validate;

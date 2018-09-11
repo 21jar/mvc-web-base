@@ -173,7 +173,7 @@ public class Global {
 			// 从输入流中读取属性列表（键和元素对）
 			Properties prop = getProperties();
 			prop.setProperty(key, value);
-			String path = Global.class.getResource("/jeeplus.properties").getPath();
+			String path = Global.class.getResource("/conf.properties").getPath();
 			FileOutputStream outputFile = new FileOutputStream(path);
 			prop.store(outputFile, "modify");
 			outputFile.close();
@@ -192,7 +192,7 @@ public class Global {
 	public static Properties getProperties(){
 		Properties prop = new Properties();
 		try {
-			Reader reader = Resources.getResourceAsReader("/jeeplus.properties");
+			Reader reader = Resources.getResourceAsReader("/conf.properties");
 			prop.load(reader);
 		} catch (Exception e) {
 			return null;
