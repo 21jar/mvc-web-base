@@ -31,6 +31,9 @@
     <baomidou.version>2.3.1</baomidou.version>
     <pagehelper.version>4.2.1</pagehelper.version>
     <aspectjweaver.version>1.5.4</aspectjweaver.version>
+    <guava.version>17.0</guava.version>
+    <commons-lang3.version>3.3.2</commons-lang3.version>
+    <commons-codec.version>1.9</commons-codec.version>
   </properties>
 
   <dependencies>
@@ -120,6 +123,12 @@
     </dependency>
 
     <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>7.0</version>
+    </dependency>
+
+    <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
       <version>1.2</version>
@@ -131,6 +140,18 @@
       <groupId>commons-fileupload</groupId>
       <artifactId>commons-fileupload</artifactId>
       <version>${fileupload.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${commons-lang3.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>${commons-codec.version}</version>
     </dependency>
 
     <!-- Mybatis-Plus -->
@@ -219,6 +240,12 @@
       <groupId>aspectj</groupId>
       <artifactId>aspectjweaver</artifactId>
       <version>${aspectjweaver.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>${guava.version}</version>
     </dependency>
 
   </dependencies>
