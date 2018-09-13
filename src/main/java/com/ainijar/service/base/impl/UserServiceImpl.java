@@ -1,16 +1,19 @@
 package com.ainijar.service.base.impl;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.ainijar.domain.base.User;
+import com.ainijar.mapper.base.UserMapper;
+import com.ainijar.service.base.IUserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+@Service
+public class UserServiceImpl implements IUserService{
 
-@Controller
-public class UserServiceImpl {
+    @Autowired
+    private UserMapper userMapper;
 
-    @RequestMapping(value = "${adminPath}")
-    public String index(HttpServletRequest request, HttpServletResponse response) {
-        return null;
+    @Override
+    public User getUserByLoginName(String username) {
+        return userMapper.getUserByLoginName(username);
     }
 }

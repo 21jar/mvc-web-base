@@ -1,11 +1,15 @@
 package com.ainijar.security;
 
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
+import com.ainijar.common.config.Global;
+import com.ainijar.common.utils.Encodes;
+import com.ainijar.domain.base.User;
+import com.ainijar.service.base.IUserService;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.Permission;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.util.ByteSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,12 +34,28 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
 	@Autowired
     HttpServletRequest request;
 
+	@Autowired
+	IUserService userService;
+
 	/**
 	 * 认证回调函数, 登录时调用
 	 */
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) {
-		return null;
+		UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
+
+		// 校验用户名密码
+		User user = userService.getUserByLoginName(token.getUsername());
+		if (user != null) {
+			if (Global.NO.equals(user.getLoginFlag())){
+				throw new AuthenticationException("msg:该已帐号禁止登录.");
+			}
+			byte[] salt = Encodes.decodeHex(user.getPassword().substring(0,16));
+			return new SimpleAuthenticationInfo(new Principal(user),
+					user.getPassword().substring(16), ByteSource.Util.bytes(salt), getName());
+		} else {
+			return null;
+		}
 	}
 
 	/**
@@ -129,6 +149,11 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
 			return mobileLogin;
 		}
 
+		public Principal(User user) {
+			this.id = user.getId();
+			this.loginName = user.getLoginName();
+			this.name = user.getName();
+		}
 		/**
 		 * 获取SESSIONID
 		 */

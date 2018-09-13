@@ -34,6 +34,7 @@
     <guava.version>17.0</guava.version>
     <commons-lang3.version>3.3.2</commons-lang3.version>
     <commons-codec.version>1.9</commons-codec.version>
+    <jackson.version>2.2.3</jackson.version>
   </properties>
 
   <dependencies>
@@ -246,6 +247,19 @@
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
       <version>${guava.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.16.22</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>${jackson.version}</version>
     </dependency>
 
   </dependencies>
