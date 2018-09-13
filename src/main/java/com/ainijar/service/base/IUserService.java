@@ -1,4 +1,7 @@
 package com.ainijar.service.base;
 
-public class IUserService {
+import com.ainijar.domain.base.User;
+
+public interface IUserService {
+    User getUserByLoginName(String username);
 }
