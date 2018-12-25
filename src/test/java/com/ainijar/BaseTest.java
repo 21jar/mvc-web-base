@@ -12,7 +12,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
  * @date 2018/8/31
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:spring.xml", "classpath:spring-mvc.xml" })
+@ContextConfiguration(locations = {"classpath:spring/spring.xml", "classpath:spring/spring-mvc.xml"})
 @WebAppConfiguration
 public class BaseTest {
     @Autowired

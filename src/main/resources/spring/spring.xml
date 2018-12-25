@@ -23,8 +23,8 @@
     <task:scheduler id="scheduler" pool-size="5"/>
     <task:annotation-driven scheduler="scheduler" executor="executor" proxy-target-class="true"/>
 
-    <import resource="classpath:spring-shiro.xml"/>
-    <import resource="classpath:spring-mybatis.xml"/>
-    <import resource="classpath:spring-redis.xml"/>
-    <import resource="classpath:spring-websocket.xml"/>
+    <import resource="classpath:spring/spring-shiro.xml"/>
+    <import resource="classpath:spring/spring-mybatis.xml"/>
+    <import resource="classpath:spring/spring-redis.xml"/>
+    <import resource="classpath:spring/spring-websocket.xml"/>
 </beans>
